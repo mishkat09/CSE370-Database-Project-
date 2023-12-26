@@ -1,0 +1,61 @@
+create table customer(
+email char(20),
+password char(20),
+primary key (email)
+);
+
+insert into customer values('mysql@trash.com', '12344567');
+insert into customer values('mariadb@trash.com', '12344567');
+
+create table item(
+id_item int(10),
+groceries char(20),
+availability char(20),
+price int(10),
+primary key(id_item)
+);
+
+insert into item values(101, 'rice', 'yes', 100);
+insert into item values(102, 'flour', 'yes', 100);
+
+create table delivery_man(
+reg_no int(20),
+name varchar(20),
+vehicle_type char(20),
+availability char(10),
+primary  key (reg_no)
+);
+
+
+create table orders(
+id_orders int(10) AUTO_INCREMENT,
+id_item int(10),
+location char(20),
+contact  int(15),
+email char(20),
+reg_no int(20),
+delivery_man varchar(20),
+price int(10),
+primary key(id_orders),
+foreign key(email) references customer(email),
+foreign key(id_item) references item(id_item),
+foreign key(reg_no) references delivery_man(reg_no)
+);
+
+
+
+
+insert into delivery_man values(32678, 'Asraf', 'Mini-Van', 'yes');
+insert into delivery_man values(32679, 'Khan', 'Mini-Van', 'no');
+insert into delivery_man values(32672, 'kamal', 'Mini-Van', 'yes');
+
+CREATE TABLE Payment ( 
+email CHAR(20) NOT NULL , 
+bill INT(10) NOT NULL , 
+status VARCHAR(20) NOT NULL , 
+PRIMARY KEY (email(20))
+);
+
+
+
+
